@@ -14,11 +14,11 @@ namespace test
                 Console.WriteLine();
             }
             Console.WriteLine();
-            int[,] matr2 = DoExponentiation(matrix, 5);
-            for (int i = 0; i < matr2.GetLength(0); i++)
+            int[,] exponentedMatr = DoExponentiation(matrix, 5);
+            for (int i = 0; i < exponentedMatr.GetLength(0); i++)
             {
-                for (int j = 0; j < matr2.GetLength(1); j++)
-                    Console.Write($"{matr2[i, j],4}");
+                for (int j = 0; j < exponentedMatr.GetLength(1); j++)
+                    Console.Write($"{exponentedMatr[i, j],4}");
                 Console.WriteLine();
             }
         }
