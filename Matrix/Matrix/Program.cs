@@ -28,7 +28,7 @@ namespace test
             var r = new Random();
             for (int i = 0; i < matr.GetLength(0); i++)
                 for (int j = 0; j < matr.GetLength(1); j++)
-                    matr[i, j] = r.Next(range);
+                    matr[i, j] = r.Next(1, range);
             return matr;
         }
         static int[,] DoExponentiation(int[,] matr, int count)
