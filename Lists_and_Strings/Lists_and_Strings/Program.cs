@@ -10,6 +10,7 @@ namespace test
             Console.WriteLine(FindPalindromes(str));
             Console.WriteLine(IsFirstLetterOccursAgain(str));
         }
+        // 1 task
         static string FindPalindromes(string str)
         {
             var parts = str.ToLower().Split(" ");
@@ -28,6 +29,7 @@ namespace test
             }
             return palindromes;
         }
+        // 2 task
         static bool IsFirstLetterOccursAgain(string str)
         {
             str = str.ToLower();
