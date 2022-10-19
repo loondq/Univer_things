@@ -22,9 +22,9 @@ namespace test
                 Console.WriteLine();
             }
         }
-        static int[,] DoRandomMatrix(int matrixLength, int matrixWidth, int range)
+        static int[,] DoRandomMatrix(int matrixColumns, int matrixRows, int range)
         {
-            int[,] matr = new int[matrixLength, matrixWidth];
+            int[,] matr = new int[matrixColumns, matrixRows];
             var r = new Random();
             for (int i = 0; i < matr.GetLength(0); i++)
                 for (int j = 0; j < matr.GetLength(1); j++)
