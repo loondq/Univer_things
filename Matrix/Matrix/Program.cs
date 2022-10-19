@@ -6,27 +6,19 @@ namespace test
     {
         static void Main()
         {
-            int[,] matr = DoRandomMatrix(3, 3);
-            for (int i = 0; i < matr.GetLength(0); i++)
+            int[,] matrix = DoRandomMatrix(3, 3);
+            for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                for (int j = 0; j < matr.GetLength(1); j++)
-                    Console.Write($"{matr[i, j],4}");
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                    Console.Write($"{matrix[i, j],4}");
                 Console.WriteLine();
             }
             Console.WriteLine();
-            int[,] matr2 = DoExponentiation(matr, 3);
+            int[,] matr2 = DoExponentiation(matrix, 5);
             for (int i = 0; i < matr2.GetLength(0); i++)
             {
                 for (int j = 0; j < matr2.GetLength(1); j++)
                     Console.Write($"{matr2[i, j],4}");
-                Console.WriteLine();
-            }
-            Console.WriteLine();
-            int[,] matr3 = DoExponentiation(matr, 4);
-            for (int i = 0; i < matr2.GetLength(0); i++)
-            {
-                for (int j = 0; j < matr2.GetLength(1); j++)
-                    Console.Write($"{matr3[i, j],4}");
                 Console.WriteLine();
             }
         }
@@ -36,26 +28,31 @@ namespace test
             var r = new Random();
             for (int i = 0; i < matr.GetLength(0); i++)
                 for (int j = 0; j < matr.GetLength(1); j++)
-                    matr[i, j] = r.Next(1, 5);
+                    matr[i, j] = r.Next(1, 3);
             return matr;
         }
         static int[,] DoExponentiation(int[,] matr, int count)
         {
-            var variable = 0;
-            int[,] exponentedMatr = new int[matr.GetLength(0), matr.GetLength(1)];
-            if (count == 1)
-                return matr;
+            int[,] exponentedMatr = matr;
             if (exponentedMatr.GetLength(0) == exponentedMatr.GetLength(1))
                 for (int i = 0; i < count - 1; i++)
-                    for (int j = 0; j < exponentedMatr.GetLength(0); j++)
-                        for (int k = 0; k < exponentedMatr.GetLength(0); k++)
-                        {
-                            for (int l = 0; l < exponentedMatr.GetLength(0); l++)
-                                variable += matr[j, l] * matr[l, k];
-                            exponentedMatr[j, k] = variable;
-                            variable = 0;
-                        }
+                    exponentedMatr = DoMultiplication(exponentedMatr, matr);
             return exponentedMatr;
+        }
+        static int[,] DoMultiplication(int[,] matr1, int[,] matr2)
+        {
+            var variable = 0;
+            int[,] newMatr = new int[matr1.GetLength(0), matr1.GetLength(1)];
+            if (matr1.GetLength(1) == matr2.GetLength(0))
+                for (int j = 0; j < newMatr.GetLength(0); j++)
+                    for (int k = 0; k < matr1.GetLength(1); k++)
+                    {
+                        for (int l = 0; l < matr2.GetLength(1); l++)
+                            variable += matr1[j, l] * matr2[l, k];
+                        newMatr[j, k] = variable;
+                        variable = 0;
+                    }
+            return newMatr;
         }
     }
 }
