@@ -7,7 +7,6 @@ namespace ListsAndStrings
         static void Main()
         {
             String str = "Шалаш комок Два три абвгд катер абвгд три мадам кукуруза";
-            string str2 = "кот собака кот кот кот";
             Console.WriteLine(FindPalindromes(str));
             Console.WriteLine(IsFirstLetterOccursAgain(str));
             Console.WriteLine(IsOrderedString(str));
