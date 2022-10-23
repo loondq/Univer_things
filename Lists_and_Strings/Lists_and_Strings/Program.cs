@@ -41,6 +41,7 @@ namespace ListsAndStrings
                     return true;
             return false;
         }
+        // 3 task
         static bool IsOrderedString(string str)
         {
             bool fl = true;
@@ -49,6 +50,7 @@ namespace ListsAndStrings
                     fl = false;
             return fl;
         }
+        // 4 task
         /// <returns>1. Longest | 2. Shortest</returns>
         static string[] FindLongestAndShortestWords(string str)
         {
@@ -70,6 +72,7 @@ namespace ListsAndStrings
             }
             return longestAndShortestWords;
         }
+        // 5 task
         static string RemoveRepeatableWords(string str)
         {
             var parts = str.ToLower().Split();
