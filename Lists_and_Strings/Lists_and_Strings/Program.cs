@@ -11,7 +11,7 @@ namespace ListsAndStrings
             Console.WriteLine(IsFirstLetterOccursAgain(str));
             Console.WriteLine(IsOrderedString(str));
             Console.WriteLine($"самое длинное - {FindLongestAndShortestWords(str)[0]}, самое короткое - {FindLongestAndShortestWords(str)[1]}");
-            Console.WriteLine(RemoveRepeatebleWords(str));  
+            Console.WriteLine(RemoveRepeatableWords(str));  
         }
         // 1 task
         static string FindPalindromes(string str)
