@@ -70,7 +70,7 @@ namespace ListsAndStrings
             }
             return longestAndShortestWords;
         }
-        static string RemoveRepeatebleWords(string str)
+        static string RemoveRepeatableWords(string str)
         {
             var parts = str.ToLower().Split();
             for (int i = 0; i < parts.Length - 1; i++)
