@@ -14,7 +14,7 @@ namespace Exponentation
                 Console.WriteLine();
             }
             Console.WriteLine();
-            int[,] exponentedMatr = DoExponentiation(matrix, 3);
+            int[,] exponentedMatr = DoExponentiation(matrix, 4);
             for (int i = 0; i < exponentedMatr.GetLength(0); i++)
             {
                 for (int j = 0; j < exponentedMatr.GetLength(1); j++)

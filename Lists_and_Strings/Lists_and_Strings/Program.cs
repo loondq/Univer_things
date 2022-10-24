@@ -7,11 +7,11 @@ namespace ListsAndStrings
         static void Main()
         {
             String str = "Шалаш комок Два три абвгд катер абвгд три мадам кукуруза";
-            Console.WriteLine(FindPalindromes(str));
-            Console.WriteLine(IsFirstLetterOccursAgain(str));
-            Console.WriteLine(IsOrderedString(str));
+            Console.WriteLine($"палиндромы: {FindPalindromes(str)}");
+            Console.WriteLine($"первая буква появляется снова - {IsFirstLetterOccursAgain(str)}");
+            Console.WriteLine($"упорядоченный по алфавиту список - {IsOrderedString(str)}");
             Console.WriteLine($"самое длинное - {FindLongestAndShortestWords(str)[0]}, самое короткое - {FindLongestAndShortestWords(str)[1]}");
-            Console.WriteLine(RemoveRepeatableWords(str));  
+            Console.WriteLine($"строка без повторяемых слов - {RemoveRepeatableWords(str)}");  
         }
         // 1 task
         static string FindPalindromes(string str)
