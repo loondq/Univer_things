@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Functions
 {
     class Project
@@ -7,10 +8,12 @@ namespace Functions
         {
             StreamReader reader = new StreamReader("D:\\texts\\test.txt");
             var text = reader.ReadToEnd();
-            Console.WriteLine($"Текст без повторяющихся слов: {RemoveRepeatableWords(text)}");
+            StreamWriter writer = new StreamWriter("D:\\texts\\newTest.txt");
+            writer.WriteLine(RemoveRepeatableWords(text));
+            writer.Close(); 
             string word = "бак";
             Console.WriteLine($"Есть ли слово {word} в тексте? - {IsWordInText(text, word)}");
-            Console.WriteLine(IsSubstringInText(text, word));
+            Console.WriteLine($"Есть ли подстрока {word} в тексте? - {IsSubstringInText(text, word)}");
         }
         static string RemoveRepeatableWords(string str)
         {
