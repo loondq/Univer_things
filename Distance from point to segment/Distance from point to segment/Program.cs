@@ -11,11 +11,13 @@ namespace DistanceTask
         public static double GetDistanceToSegment(double ax, double ay, double bx, double by, double x, double y)
         {
             double[] distancesFromPointToPoint = GetDistanceFromPointToPoint(ax, ay, bx, by, x, y);
+            bool[] obtuseAngles = IsObtuseAngle(distancesFromPointToPoint[0],
+            distancesFromPointToPoint[1], distancesFromPointToPoint[2]);
             double triangleArea = 0.5 * ((ax - x) * (by - y) - (bx - x) * (ay - y));
             double distance = Math.Abs((triangleArea / distancesFromPointToPoint[0]) * 2);
-            if (IsObtuseAngle(distancesFromPointToPoint[0], distancesFromPointToPoint[1], distancesFromPointToPoint[2])[0])
+            if (obtuseAngles[0])
                 return distancesFromPointToPoint[2];
-            if (IsObtuseAngle(distancesFromPointToPoint[0], distancesFromPointToPoint[1], distancesFromPointToPoint[2])[1])
+            if (obtuseAngles[1])
                 return distancesFromPointToPoint[1];
             if (triangleArea == 0)
             {
