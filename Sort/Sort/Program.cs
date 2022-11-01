@@ -8,11 +8,11 @@ namespace Sort
         {
             int n = 20;
             int[] mass = DoMass(n);
-            BubbleSort(ref mass);
+            //BubbleSort(mass);
+            SelectionSort(ref mass);
             PrintMass(mass);
-
         }
-        static void BubbleSort(ref int[] mass)
+        static void BubbleSort(int[] mass)
         {
             int n = mass.Length;
             var fl = true;
@@ -30,16 +30,25 @@ namespace Sort
                     }
                 }
             }
-            //for (int k = n-1; k > 1; k--)
-            //{
-            //    for (int i = 0; i < k; i++)
-            //        if (mass[i] > mass[i + 1])
-            //        {
-            //            var t = mass[i];
-            //            mass[i] = mass[i + 1];
-            //            mass[i + 1] = t;
-            //        }
-            //}
+        }
+        static void SelectionSort(ref int[] mass)
+        {
+            int n = mass.Length - 1;
+            int[] newMass = new int[mass.Length];
+            int max = int.MinValue;
+            for (int y = n; y > 1; y--)
+            {
+                for (int i = 0; i < y; i++)
+                {
+                    if (mass[i] > max)
+                    {
+                        max = mass[i];
+                    }
+                }
+                newMass[y] = max;
+                max = int.MinValue;
+            }
+            mass = newMass;
         }
         static int[] DoMass(int n)
         {
