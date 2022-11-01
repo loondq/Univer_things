@@ -4,7 +4,8 @@ namespace Files
 {
     class Program
     {
-        static StringBuilder sb;
+        static StringBuilder sb = new StringBuilder();
+
         static void Main()
         {
             StreamReader reader = new StreamReader("D:\\texts\\test.txt");
@@ -23,9 +24,6 @@ namespace Files
             MakeChanges(ref parts);
             foreach (var word in parts)
                 Console.WriteLine(word);
-
-            
-
         }
         static void MakeChanges(ref string[] parts)
         {
