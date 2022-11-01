@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Text;
+﻿using System.Text;
 
 namespace Files
 {
     class Program
     {
+        static StringBuilder sb;
         static void Main()
         {
             StreamReader reader = new StreamReader("D:\\texts\\test.txt");
@@ -44,7 +43,7 @@ namespace Files
         }
         static void SwapFirstLetterToTheEnd(ref string word)
         {
-            StringBuilder sb = new(word);
+            sb = new(word);
             char k = sb[0];
             for (int i = 0; i < sb.Length - 1; i++)
                 sb[i] = sb[i + 1];
@@ -53,22 +52,22 @@ namespace Files
         }
         static void SwapLastLetterToTheStart(ref string word)
         {
-            StringBuilder sb = new(word);
+            sb = new(word);
             char k = sb[^1];
             for (int i = 1; i < sb.Length; i++)
-                sb[i - 1] = sb[i];
+                sb[^i]= sb[^(i+1)];
             sb[0] = k;
             word = sb.ToString();
         }
         static void DeleteFirstLetter(ref string word)
         {
-            StringBuilder sb = new(word);
+            sb = new(word);
             sb.Remove(0, 1);
             word = sb.ToString();
         }
         static void DeleteLastLetter(ref string word)
         {
-            StringBuilder sb = new(word);
+            sb = new(word);
             sb.Remove(sb.Length - 1, 1);
             word = sb.ToString();
         }
