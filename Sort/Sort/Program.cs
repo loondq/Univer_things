@@ -9,8 +9,24 @@ namespace Sort
             int n = 20;
             int[] mass = DoMass(n);
             //BubbleSort(mass);
-            SelectionSort(ref mass);
+            //SelectionSort(ref mass);
             PrintMass(mass);
+            //Console.WriteLine(FindIntRec(mass, 0, n, 5));
+            Console.WriteLine(SumMass(mass, n - 1));
+            Console.WriteLine(MassMax(mass, n - 1));
+        }
+        static int SumMass(int[] mass, int end)
+        {
+            if (end == 0)
+                return mass[0];
+            return mass[end] + SumMass(mass, end - 1);
+        }
+        static int MassMax(int[] mass, int end)
+        {
+            if (end == 0)
+                return mass[0];
+            int oldMax = MassMax(mass, end - 1);
+            return (oldMax < mass[end]) ? mass[end] : oldMax;
         }
         static void BubbleSort(int[] mass)
         {
@@ -41,7 +57,7 @@ namespace Sort
                 for (int i = 0; i < y; i++)
                 {
                     if (mass[i] > max)
-                    {
+                    { 
                         max = mass[i];
                     }
                 }
@@ -57,6 +73,18 @@ namespace Sort
             for (int i = 0; i < n; i++) 
                 mass[i] = r.Next(-100, 100);
             return mass;
+        }
+        static bool FindIntRec(int[] mass, int a, int b, int x)
+        {
+            int c = (a + b) / 2;
+            if (mass[c] == x)
+                return true;
+            if (a > b)
+                return false;
+            if (mass[c] < x)
+                return FindIntRec(mass, c + 1, b, x);
+            return FindIntRec(mass, a, c - 1, x);
+ 
         }
         static void PrintMass(int[] mass)
         {
