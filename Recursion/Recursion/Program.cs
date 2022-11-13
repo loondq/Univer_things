@@ -9,8 +9,7 @@ namespace Recursion
             int n = 20;
             int[] mass = DoMass(n);
             PrintMass(mass);
-            //Console.WriteLine(IsPositiveNumber(mass, n - 1));
-            Console.WriteLine(IsSymmMass(mass, 0));
+            Console.WriteLine(FastPow(2, 8));
         }
         static int SumMass(int[] mass, int end)
         {
@@ -62,9 +61,10 @@ namespace Recursion
                 return true;
             return (mass[start] == mass[^(start + 1)]) ? IsSymmMass(mass, start + 1) : false; 
         }
-        static int FastPow(int number, int pow)
+        static int FastPow(int number, int power)
         {
-            
+            int temp = FastPow(number, power / 2);
+            return power == 0 ? 1 : power % 2 == 0 ? temp * temp : number * temp * temp;
         }
     }
 }

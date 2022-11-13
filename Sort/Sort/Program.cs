@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace Sort
 {
@@ -6,27 +7,15 @@ namespace Sort
     {
         static void Main()
         {
-            int n = 20;
+            int n = 10;
             int[] mass = DoMass(n);
             //BubbleSort(mass);
             //SelectionSort(ref mass);
             PrintMass(mass);
+            SelectionSort(mass);
+            PrintMass(mass);
             //Console.WriteLine(FindIntRec(mass, 0, n, 5));
-            Console.WriteLine(SumMass(mass, n - 1));
-            Console.WriteLine(MassMax(mass, n - 1));
-        }
-        static int SumMass(int[] mass, int end)
-        {
-            if (end == 0)
-                return mass[0];
-            return mass[end] + SumMass(mass, end - 1);
-        }
-        static int MassMax(int[] mass, int end)
-        {
-            if (end == 0)
-                return mass[0];
-            int oldMax = MassMax(mass, end - 1);
-            return (oldMax < mass[end]) ? mass[end] : oldMax;
+
         }
         static void BubbleSort(int[] mass)
         {
@@ -47,50 +36,90 @@ namespace Sort
                 }
             }
         }
-        static void SelectionSort(ref int[] mass)
+        static void SelectionSort(int[] mass)
         {
-            int n = mass.Length - 1;
-            int[] newMass = new int[mass.Length];
-            int max = int.MinValue;
-            for (int y = n; y > 1; y--)
+            for (int i = 0; i < mass.Length - 1; i++)
             {
-                for (int i = 0; i < y; i++)
+                var min = i;
+                for (int j = i + 1; j < mass.Length; j++)
                 {
-                    if (mass[i] > max)
-                    { 
-                        max = mass[i];
+                    if (mass[j] < mass[min])
+                    {
+                        min = j;
                     }
                 }
-                newMass[y] = max;
-                max = int.MinValue;
+                var tempVar = mass[min];
+                mass[min] = mass[i];
+                mass[i] = tempVar;
             }
-            mass = newMass;
         }
         static int[] DoMass(int n)
         {
             int[] mass = new int[n];
             Random r = new Random();
             for (int i = 0; i < n; i++) 
-                mass[i] = r.Next(-100, 100);
+                mass[i] = r.Next(1, 10);
             return mass;
-        }
-        static bool FindIntRec(int[] mass, int a, int b, int x)
-        {
-            int c = (a + b) / 2;
-            if (mass[c] == x)
-                return true;
-            if (a > b)
-                return false;
-            if (mass[c] < x)
-                return FindIntRec(mass, c + 1, b, x);
-            return FindIntRec(mass, a, c - 1, x);
- 
         }
         static void PrintMass(int[] mass)
         {
             for (int i = 0; i < mass.Length; i++)
                 Console.Write($"{mass[i]} ");
             Console.WriteLine();
+        }
+        static void MergeSort(int[] mass, int a, int b)
+        {
+            if (b - a < 1)
+                return;
+            int c = (a + b) / 2;
+            MergeSort(mass, a, c);
+            MergeSort(mass, c + 1, b);
+            int[] mergeArray = new int[b - a + 1];
+            int i = a, j = c + 1;
+            for (int k = 0; k < mergeArray.Length; k++)
+            {
+                if (i > c) // ended 1 mass
+                    mergeArray[k] = mass[j++];
+                else if (j > b) // ended 2 mass
+                    mergeArray[k] = mass[i++];
+                else if (mass[i] < mass[j])
+                    mergeArray[k] = mass[i++];
+                else 
+                    mergeArray[k] = mass[j++];
+            }
+            i = a;
+            for (int u = 0; u <  mergeArray.Length; u++)
+                mass[i++] = mergeArray[u];
+        }
+        static void QuickSort(int[] mass, int leftIndex, int rightIndex)
+        {
+            int i = leftIndex;
+            int j = rightIndex;
+            int centre = mass[leftIndex];
+            while (i <= j)
+            {
+                while (mass[i] < centre)
+                    i++;
+                while (mass[j] > centre)
+                    j--;
+            
+                if (i <= j)
+                {
+                    Swap(mass, i, j);
+                    i++;
+                    j--;
+                }
+             }
+            if (leftIndex < j)
+                QuickSort(mass, leftIndex, j);
+            if (i < rightIndex)
+                QuickSort(mass, i, rightIndex);
+         }
+        static void Swap(int[] mass, int position, int newPosition)
+        {
+            int temp = mass[newPosition];
+            mass[newPosition] = mass[position];
+            mass[position] = temp;
         }
     }
 }
