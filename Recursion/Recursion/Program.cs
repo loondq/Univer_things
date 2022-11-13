@@ -9,7 +9,7 @@ namespace Recursion
             int n = 20;
             int[] mass = DoMass(n);
             PrintMass(mass);
-            Console.WriteLine(FastPow(2, 8));
+            Console.WriteLine(FastPow(2, 12));
         }
         static int SumMass(int[] mass, int end)
         {
@@ -63,8 +63,10 @@ namespace Recursion
         }
         static int FastPow(int number, int power)
         {
+            if (power == 0)
+                return 1;
             int temp = FastPow(number, power / 2);
-            return power == 0 ? 1 : power % 2 == 0 ? temp * temp : number * temp * temp;
+            return power % 2 == 0 ? temp * temp : number * temp * temp;
         }
     }
 }
