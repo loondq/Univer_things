@@ -2,7 +2,7 @@
 
 namespace Fraction
 {
-    class Progect
+    class Program
     {
         static void Main()
         {
