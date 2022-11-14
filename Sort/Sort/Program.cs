@@ -12,10 +12,24 @@ namespace Sort
             //BubbleSort(mass);
             //SelectionSort(ref mass);
             PrintMass(mass);
-            SelectionSort(mass);
+            QuickSort(mass, 0, n-1);
             PrintMass(mass);
             //Console.WriteLine(FindIntRec(mass, 0, n, 5));
 
+        }
+        static int[] DoMass(int n)
+        {
+            int[] mass = new int[n];
+            Random r = new Random();
+            for (int i = 0; i < n; i++)
+                mass[i] = r.Next(1, 10);
+            return mass;
+        }
+        static void PrintMass(int[] mass)
+        {
+            for (int i = 0; i < mass.Length; i++)
+                Console.Write($"{mass[i]} ");
+            Console.WriteLine();
         }
         static void BubbleSort(int[] mass)
         {
@@ -53,20 +67,7 @@ namespace Sort
                 mass[i] = tempVar;
             }
         }
-        static int[] DoMass(int n)
-        {
-            int[] mass = new int[n];
-            Random r = new Random();
-            for (int i = 0; i < n; i++) 
-                mass[i] = r.Next(1, 10);
-            return mass;
-        }
-        static void PrintMass(int[] mass)
-        {
-            for (int i = 0; i < mass.Length; i++)
-                Console.Write($"{mass[i]} ");
-            Console.WriteLine();
-        }
+        
         static void MergeSort(int[] mass, int a, int b)
         {
             if (b - a < 1)
