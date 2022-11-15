@@ -27,7 +27,7 @@ namespace OOP
         public void Substraction(Fractions f)
         {
             numerator = numerator * f.denominator - denominator * f.numerator;
-            denominator = denominator * f.denominator;
+            denominator *= f.denominator;
             Reduction();
         }
         public void Multiplication(Fractions f)
