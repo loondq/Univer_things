@@ -6,12 +6,12 @@ namespace OOP
     {
         static void Main()
         {
-            Fraction f = new Fraction();
-            f.SetNum(11);
-            f.SetDenom(12);
-            f.Print();
-            Console.WriteLine($"Fraction - {f.GetNum()} / {f.GetDenum()}");
-
+            Fractions f1 = new (24, 12);
+            f1.Print();
+            Fractions f2 = new (15, 6);
+            f2.Print();
+            f1.Division(f2);
+            f1.Print();
         }
     }
 }
