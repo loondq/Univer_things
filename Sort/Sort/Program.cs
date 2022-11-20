@@ -7,14 +7,11 @@ namespace Sort
     {
         static void Main()
         {
-            int n = 10;
+            int n = 50;
             int[] mass = DoMass(n);
-            //BubbleSort(mass);
-            //SelectionSort(ref mass);
             PrintMass(mass);
             QuickSort(mass, 0, n-1);
             PrintMass(mass);
-            //Console.WriteLine(FindIntRec(mass, 0, n, 5));
 
         }
         static int[] DoMass(int n)

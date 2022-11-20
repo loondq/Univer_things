@@ -8,8 +8,27 @@ namespace OOP
 {
     public class Fractions
     {
-        private double numerator;
-        private double denominator;
+        private int numerator;
+        private int denominator;
+
+        public int Numerator
+        {
+            get { return numerator; }
+            set
+            { 
+                numerator = value;
+            }
+        }
+        public int Denominator
+        {
+            get { return denominator; }
+            set
+            {
+                if (value <= 0)
+                    throw new ArgumentException("Нельзя делить на ноль");
+                denominator = value;
+            }
+        }
         
         public Fractions(int numerator, int denominator)
         {
@@ -17,6 +36,7 @@ namespace OOP
             if (denominator == 0)
                 throw new ArgumentException("Нельзя делить на ноль");
             this.denominator = denominator;
+
         }
         public void Sum(Fractions f)
         {
@@ -44,35 +64,19 @@ namespace OOP
         }
         public void Reduction()
         {
-            double devider = NOD(numerator, denominator);
+            int devider = NOD(numerator, denominator);
             numerator /= devider;
             denominator /= devider;
         }
-        public void SetNum(int a)
+        public override string ToString()
         {
-            numerator = a;
+            if (Denominator == 1) return $"{Numerator}";
+            return $"{Numerator}/{Denominator}";
         }
-        public void SetDenom(int b)
+        private int NOD(int number1, int number2)
         {
-            if (b == 0)
-                throw new ArgumentException("Нельзя делить на ноль");
-            denominator = b;
-        }
-        public double GetNum()
-        {
-            return numerator;
-        }
-        public double GetDenum()
-        {
-            return denominator; 
-        }
-
-        public void Print()
-        {
-            Console.WriteLine($"{numerator}/{denominator}");
-        }
-        private double NOD(double a, double b)
-        {
+            int a = Math.Abs(number1);
+            int b = Math.Abs(number2);
             if (a == b) return a;
             if (a < b)
                 return NOD(a, b - a);

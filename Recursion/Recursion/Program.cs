@@ -9,8 +9,8 @@ namespace Recursion
             int n = 20;
             int[] mass = DoMass(n);
             //PrintMass(mass);
-            int pow = 12;
-            Console.WriteLine($"2 в {pow} степени = {FastPow(2, 5)}");
+            int pow = -8;
+            Console.WriteLine($"2 в {pow} степени = {FastPow(2, pow)}");
         }
         static int SumMass(int[] mass, int end)
         {
