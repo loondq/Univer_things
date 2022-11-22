@@ -18,14 +18,20 @@ namespace OOP
             imaginaryPart = im;
             realPart = re;
         }
-        public double GetMod() { return Math.Round(Math.Sqrt(realPart * realPart + imaginaryPart * imaginaryPart), 2); }
+        public double GetMod() { return Math.Sqrt(realPart * realPart + imaginaryPart * imaginaryPart); }
         public double GetArg()
         {
-            if (realPart > 0) return Math.Round(Math.Atan(imaginaryPart / realPart), 2);
-            if (realPart < 0 && imaginaryPart >= 0) return Math.Round(Math.PI + Math.Atan(imaginaryPart / realPart), 2);
-            if (realPart < 0 && imaginaryPart < 0) return Math.Round(-Math.PI + Math.Atan(imaginaryPart / realPart), 2);
-            if (realPart == 0 && imaginaryPart > 0) return Math.Round(Math.PI / 2 , 2);
-            return Math.Round(-Math.PI / 2, 2);
+            if (realPart < 0)
+            {
+                if (imaginaryPart >= 0) return Math.PI + Math.Atan(imaginaryPart / realPart);
+                if (imaginaryPart < 0) return -Math.PI + Math.Atan(imaginaryPart / realPart);
+            }
+            if (realPart == 0)
+            {
+                if (imaginaryPart > 0) return Math.PI / 2;
+                if (imaginaryPart < 0) return -Math.PI / 2;
+            }
+            return Math.Atan(imaginaryPart / realPart);
         }
         public void Sum(Complex c)
         {
@@ -58,9 +64,10 @@ namespace OOP
         public override string ToString()
         {
             if (addition == 1) return "1";
+            if (realPart == 0 && imaginaryPart == 1) return "i";
+            if (realPart == 0) return $"{imaginaryPart}i";
             if (imaginaryPart == 0) return $"{realPart}";
             if (imaginaryPart == 1) return $"{realPart} + i";
-            if (realPart == 0) return $"{imaginaryPart}i";
             if (addition != null)
             {
                 if (imaginaryPart < 0) return $"({realPart} - {-imaginaryPart}i) / {addition}";
