@@ -36,7 +36,7 @@ namespace OOP
             if (denominator == 0)
                 throw new ArgumentException("Нельзя делить на ноль");
             this.denominator = denominator;
-
+            Reduction();
         }
         public void Sum(Fractions f)
         {
@@ -81,6 +81,12 @@ namespace OOP
             if (a < b)
                 return NOD(a, b - a);
             else return NOD(a - b, b);
+        }
+        public static Fractions operator + (Fractions f1, Fractions f2)
+        {
+            var n = f1.numerator * f2.denominator + f1.denominator * f2.numerator;
+            var d = f1.denominator * f2.denominator;
+            return new Fractions(n, d);
         }
     }
 }
