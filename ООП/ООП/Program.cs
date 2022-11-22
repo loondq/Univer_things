@@ -6,21 +6,14 @@ namespace OOP
     {
         static void Main()
         {
-            Fractions f1 = new (24, 12);
-            Console.WriteLine(f1);
-            Fractions f2 = new (15, 6);
-            Console.WriteLine(f2);
-            f1.Sum(f2);
-            Console.WriteLine(f1);
-
-            Console.WriteLine();
-
-            Complex c1 = new(12, 5);
-            Complex c2 = new(5, 17);
-            Console.WriteLine(c1);
-            Console.WriteLine(c2);
-            c1.Multiplication(c1);
-            Console.WriteLine(c1);
+            Complex c1 = new(12, 17);
+            Console.WriteLine($"c1 = {c1}");
+            Console.WriteLine($"Аргумент = {c1.GetArg()}");
+            Console.WriteLine($"Модуль = {c1.GetMod()}");
+            Complex c2 = new(6, 8);
+            Console.WriteLine($"c2 = {c2}");
+            c1.Multiplication(c2);
+            Console.WriteLine($"умножение C1 на C2 = {c1}");
         }
     }
 }
