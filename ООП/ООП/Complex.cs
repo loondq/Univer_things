@@ -18,7 +18,7 @@ namespace OOP
             imaginaryPart = im;
             realPart = re;
         }
-        public Complex(int re, int im, int ad)
+        private Complex(int re, int im, int ad)
         {
             realPart = re;
             imaginaryPart = im;

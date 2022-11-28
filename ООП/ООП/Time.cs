@@ -113,15 +113,7 @@ namespace OOP
         }
         public override string ToString()
         {
-            StringBuilder hoursStr = new(hours.ToString());
-            StringBuilder minutesStr = new(minutes.ToString());
-            StringBuilder secondsStr = new(seconds.ToString());
-
-            if (hoursStr.Length != 2) hoursStr.Insert(0, "0");
-            if (minutesStr.Length != 2) minutesStr.Insert(0, "0");
-            if (secondsStr.Length != 2) secondsStr.Insert(0, "0");
-
-            return $"{hoursStr}:{minutesStr}:{secondsStr}";
+            return String.Format("{0:00}:{1:00}:{2:00}", Hours, Minutes, Seconds);
         }
     }
 }

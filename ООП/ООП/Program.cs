@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace OOP
 {
@@ -8,7 +9,7 @@ namespace OOP
         {
             Console.WriteLine("|-----------------Complex-----------------|");
             Console.WriteLine();
-            Complex c1 = new(5,16);
+            Complex c1 = new(5, 16);
             Console.WriteLine($"1 комплексное число = {c1}");
             Console.WriteLine($"Аргумент = {c1.GetArg()}");
             Console.WriteLine($"Модуль = {c1.GetMod()}");
@@ -24,9 +25,9 @@ namespace OOP
             Console.WriteLine($"Деление = {c1 / c2}");
             Console.WriteLine();
 
-            Console.WriteLine("|------------------Time-------------------|");
+            Console.WriteLine("|-------------------Time-------------------|");
             Console.WriteLine();
-            Time t1 = new (22, 58, 58);
+            Time t1 = new(22, 58, 58);
             Console.WriteLine($"Время 1: {t1}");
             Time t2 = new(15, 58, 59);
             Console.WriteLine($"Время 2: {t2}");
@@ -35,6 +36,32 @@ namespace OOP
             Console.WriteLine($"Разность времени = {t1 - t2}");
             Console.WriteLine($"Умножение времени = {t1 * 2}");
             Console.WriteLine($"Деление времени = {t1 / 2}");
+            Console.WriteLine();
+
+            Console.WriteLine("|-------------------Weight1------------------|");
+            Console.WriteLine();
+            WeightViaGramms wg1 = new(2, 1000);
+            Console.WriteLine($"{wg1.Gramms} грамм");
+            Console.WriteLine($"{wg1.Pounds} фунтов");
+            Console.WriteLine($"{wg1.Ounce} унций");
+            Console.WriteLine();
+            WeightViaGramms wg2 = new(1020);
+            Console.WriteLine($"вторая масса - {wg2} грамм");
+            Console.WriteLine($"сумма = {wg1 + wg2} грамм");
+            Console.WriteLine($"разность = {wg1 - wg2} грамм");
+            Console.WriteLine();
+
+            Console.WriteLine("|-------------------Weight2------------------|");
+            Console.WriteLine();
+            WeightViaPounds wp1 = new(5, 100);
+            Console.WriteLine($"{wp1.Gramms} грамм");
+            Console.WriteLine($"{wp1.Pounds} фунтов");
+            Console.WriteLine($"{wp1.Ounce} унций");
+            Console.WriteLine();
+            WeightViaPounds wp2 = new(10);
+            Console.WriteLine($"вторая масса - {wp2} фунтов");
+            Console.WriteLine($"сумма = {wp1 + wp2} фунтов");
+            Console.WriteLine($"разность = {wp1 - wp2} фунтов");
         }
     }
 }
