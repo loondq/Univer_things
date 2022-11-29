@@ -40,12 +40,12 @@ namespace OOP
 
             Console.WriteLine("|-------------------Weight1------------------|");
             Console.WriteLine();
-            WeightViaGramms wg1 = new(2, 1000);
+            WeightViaGramms wg1 = new(10, 0);    
             Console.WriteLine($"{wg1.Gramms} грамм");
             Console.WriteLine($"{wg1.Pounds} фунтов");
             Console.WriteLine($"{wg1.Ounce} унций");
             Console.WriteLine();
-            WeightViaGramms wg2 = new(1020);
+            WeightViaGramms wg2 = new(34.959);
             Console.WriteLine($"вторая масса - {wg2} грамм");
             Console.WriteLine($"сумма = {wg1 + wg2} грамм");
             Console.WriteLine($"разность = {wg1 - wg2} грамм");
@@ -53,12 +53,12 @@ namespace OOP
 
             Console.WriteLine("|-------------------Weight2------------------|");
             Console.WriteLine();
-            WeightViaPounds wp1 = new(5, 100);
+            WeightViaPounds wp1 = new(5);
             Console.WriteLine($"{wp1.Gramms} грамм");
             Console.WriteLine($"{wp1.Pounds} фунтов");
             Console.WriteLine($"{wp1.Ounce} унций");
             Console.WriteLine();
-            WeightViaPounds wp2 = new(10);
+            WeightViaPounds wp2 = new(4);
             Console.WriteLine($"вторая масса - {wp2} фунтов");
             Console.WriteLine($"сумма = {wp1 + wp2} фунтов");
             Console.WriteLine($"разность = {wp1 - wp2} фунтов");

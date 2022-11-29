@@ -12,15 +12,15 @@ namespace OOP
 
         public double Gramms 
         {
-            get { return _pounds * 453.9237; } 
+            get { return Math.Round(_pounds * 453.59237, 2); } 
         }
         public double Pounds
         {
-            get { return _pounds; }
+            get { return Math.Round(_pounds, 2); }
         }
         public double Ounce
         {
-            get { return _pounds * 16; }
+            get { return Math.Round(_pounds * 16, 2); }
         }
         public WeightViaPounds(double pounds)
         {
@@ -44,7 +44,9 @@ namespace OOP
         }
         public override string ToString()
         {
-            return Pounds.ToString();
+            if(_pounds == 0)
+                return "0";
+            return _pounds.ToString("#.##");
         }
         private void IsCorrectInput()
         {

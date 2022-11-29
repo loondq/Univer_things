@@ -10,16 +10,14 @@ namespace OOP
     {
         private readonly double _gramms;
 
-        public double Gramms { get { return _gramms; }}
+        public double Gramms { get { return Math.Round(_gramms, 2); }}
         public double Pounds
         {
-            get { return _gramms / 453.59237; }
-            set { Pounds = value; }
+            get { return Math.Round(_gramms / 453.59237, 2); }
         }
         public double Ounce
         {
-            get { return _gramms / 28.349523125; }
-            set { Ounce = value; }
+            get { return Math.Round(_gramms / 28.349523125, 2); }
         }
         public WeightViaGramms(double gramms)
         {
@@ -43,7 +41,9 @@ namespace OOP
         }
         public override string ToString()
         {
-            return Gramms.ToString();
+            if (_gramms == 0)
+                return "0";
+            return _gramms.ToString("#.##");
         }
         private void IsCorrectInput()
         {
