@@ -10,23 +10,18 @@ namespace OOP
     {
         private readonly double _gramms;
 
-        public double Gramms { get { return Math.Round(_gramms, 2); }}
+        public double Gramms { get { return _gramms; }}
         public double Pounds
         {
-            get { return Math.Round(_gramms / 453.59237, 2); }
+            get { return _gramms / 453.59237; }
         }
         public double Ounce
         {
-            get { return Math.Round(_gramms / 28.349523125, 2); }
+            get { return _gramms / 28.349523125; }
         }
         public WeightViaGramms(double gramms)
         {
             _gramms = gramms;
-            IsCorrectInput();
-        }
-        public WeightViaGramms(double pounds, double gramms)
-        {
-            _gramms = gramms + pounds * 453.59237;
             IsCorrectInput();
         }
         public static WeightViaGramms operator + (WeightViaGramms wg1, WeightViaGramms wg2)
@@ -43,7 +38,7 @@ namespace OOP
         {
             if (_gramms == 0)
                 return "0";
-            return _gramms.ToString("#.##");
+            return $"грамм - {Gramms:#.##}\nфунтов - {Pounds:#.##}\nунций - {Ounce.ToString("#.##")}";
         }
         private void IsCorrectInput()
         {

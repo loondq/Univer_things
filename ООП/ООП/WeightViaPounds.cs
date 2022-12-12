@@ -46,7 +46,7 @@ namespace OOP
         {
             if(_pounds == 0)
                 return "0";
-            return _pounds.ToString("#.##");
+            return $"грамм - {Gramms:#.##}\nфунтов - {Pounds:#.##}\nунций - {Ounce:#.##}";
         }
         private void IsCorrectInput()
         {

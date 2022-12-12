@@ -46,18 +46,23 @@ namespace ClassTests
             return (wg1 - wg2).ToString();
         }
 
-        [TestCase(10, 20)]
-        public void SubstractionExceptionOfGrammsTest(int gramms1, int gramms2)
-        {
-            WeightViaGramms wg1 = new(gramms1);
-            WeightViaGramms wg2 = new(gramms2);
-            Assert.Throws<Exception>(() => (wg1 - wg2).ToString());
-        }
-
         [Test]
         public void NotCorrectInputTest()
         {
             Assert.Throws<Exception>(NotCorrectInput);
+        }
+
+        [Test]
+        public void NotCorrectSubstraction()
+        {
+            Assert.Throws<Exception>(SubstractionExceptionOfGramms);
+        }
+
+        public void SubstractionExceptionOfGramms()
+        {
+            WeightViaGramms wg1 = new(10);
+            WeightViaGramms wg2 = new(20);
+            var sub = (wg1 - wg2);
         }
 
         private void NotCorrectInput()

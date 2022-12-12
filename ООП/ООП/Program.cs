@@ -7,61 +7,45 @@ namespace OOP
     {
         static void Main()
         {
-            Console.WriteLine("|-----------------Complex-----------------|");
+            Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("|-------------------Weight1------------------|"); Console.ResetColor();
             Console.WriteLine();
-            Complex c1 = new(5, 16);
-            Console.WriteLine($"1 комплексное число = {c1}");
-            Console.WriteLine($"Аргумент = {c1.GetArg()}");
-            Console.WriteLine($"Модуль = {c1.GetMod()}");
+            WeightViaGramms wg1 = new(1432);
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"Вы ввели 1 массу через граммы: "); Console.ResetColor();
             Console.WriteLine();
-            Complex c2 = new(6, 8);
-            Console.WriteLine($"2 комплексное число = {c2}");
-            Console.WriteLine($"Аргумент = {c2.GetArg()}");
-            Console.WriteLine($"Модуль = {c2.GetMod()}");
+            Console.WriteLine(wg1);
             Console.WriteLine();
-            Console.WriteLine($"Сумма = {c1 + c2}");
-            Console.WriteLine($"Разность = {c1 - c2}");
-            Console.WriteLine($"Умножение = {c1 * c2}");
-            Console.WriteLine($"Деление = {c1 / c2}");
+            WeightViaGramms wg2 = new(756);
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"Вы ввели 2 массу через граммы: "); Console.ResetColor();
             Console.WriteLine();
-
-            Console.WriteLine("|-------------------Time-------------------|");
+            Console.WriteLine(wg2);
             Console.WriteLine();
-            Time t1 = new(22, 58, 58);
-            Console.WriteLine($"Время 1: {t1}");
-            Time t2 = new(15, 58, 59);
-            Console.WriteLine($"Время 2: {t2}");
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"Cумма: "); Console.ResetColor();
+            Console.Write($"\n{wg1 + wg2}");
             Console.WriteLine();
-            Console.WriteLine($"Cумма времени = {t1 + t2}");
-            Console.WriteLine($"Разность времени = {t1 - t2}");
-            Console.WriteLine($"Умножение времени = {t1 * 2}");
-            Console.WriteLine($"Деление времени = {t1 / 2}");
             Console.WriteLine();
-
-            Console.WriteLine("|-------------------Weight1------------------|");
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"Разность: "); Console.ResetColor();
+            Console.Write($"\n{wg1 - wg2}");
             Console.WriteLine();
-            WeightViaGramms wg1 = new(10, 0);    
-            Console.WriteLine($"{wg1.Gramms} грамм");
-            Console.WriteLine($"{wg1.Pounds} фунтов");
-            Console.WriteLine($"{wg1.Ounce} унций");
             Console.WriteLine();
-            WeightViaGramms wg2 = new(34.959);
-            Console.WriteLine($"вторая масса - {wg2} грамм");
-            Console.WriteLine($"сумма = {wg1 + wg2} грамм");
-            Console.WriteLine($"разность = {wg1 - wg2} грамм");
-            Console.WriteLine();
-
-            Console.WriteLine("|-------------------Weight2------------------|");
+            Console.ForegroundColor = ConsoleColor.Red; Console.WriteLine("|-------------------Weight2------------------|"); Console.ResetColor();
             Console.WriteLine();
             WeightViaPounds wp1 = new(5);
-            Console.WriteLine($"{wp1.Gramms} грамм");
-            Console.WriteLine($"{wp1.Pounds} фунтов");
-            Console.WriteLine($"{wp1.Ounce} унций");
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"Вы ввели 1 массу через фунты: "); Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine(wp1);
             Console.WriteLine();
             WeightViaPounds wp2 = new(4);
-            Console.WriteLine($"вторая масса - {wp2} фунтов");
-            Console.WriteLine($"сумма = {wp1 + wp2} фунтов");
-            Console.WriteLine($"разность = {wp1 - wp2} фунтов");
+            Console.ForegroundColor = ConsoleColor.Green;  Console.WriteLine($"Вы ввели 2 массу через фунты: "); Console.ResetColor();
+            Console.WriteLine();
+            Console.WriteLine(wp2);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"Cумма: "); Console.ResetColor();
+            Console.Write($"\n{wp1 + wp2}");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green; Console.WriteLine($"Разность: "); Console.ResetColor();
+            Console.Write($"\n{wp1 - wp2}");
+            Console.WriteLine();
         }
     }
 }

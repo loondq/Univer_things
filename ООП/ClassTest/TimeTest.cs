@@ -40,12 +40,16 @@ namespace ClassTests
             return (t2 - t1).ToString();
         }
 
-        [TestCase(10, 50, 30, 15, 9, 89)]
-        public void TimeSubstractionExceptionTest(int hours1, int minutes1, int seconds1, int hours2, int minutes2, int seconds2)
+        [Test]
+        public void WrongSubstractionTimeTest()
         {
-            Time t1 = new(hours1, minutes1, seconds1);
-            Time t2 = new(hours2, minutes2, seconds2);
-            Assert.Throws<Exception>(() => (t1 - t2).ToString());
+            Assert.Throws<Exception>(WrongSubstraction);
+        }
+        public void WrongSubstraction()
+        {
+            Time t1 = new(10, 50, 30);
+            Time t2 = new(15, 9, 89);
+            var sub = t1 - t2;
         }
 
         [TestCase(10, 50, 30, 5, ExpectedResult = "06:12:30")]
