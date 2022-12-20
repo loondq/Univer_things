@@ -38,7 +38,7 @@ namespace OOP
         {
             if (_gramms == 0)
                 return "0";
-            return $"грамм - {Gramms:#.##}\nфунтов - {Pounds:#.##}\nунций - {Ounce.ToString("#.##")}";
+            return $"грамм - {Gramms:#.##}\nфунтов - {Pounds:#.##}\nунций - {Ounce:#.##}";
         }
         private void IsCorrectInput()
         {
